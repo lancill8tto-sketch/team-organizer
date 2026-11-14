@@ -3126,7 +3126,7 @@ class TeamOrganizerApp(ctk.CTk):
 
         hash_remoto = normalizza_codice_hash(codice_remoto)
 
-        hash_salvato = self._get_config("hash_codice_installato", "")
+        hash_salvato = ""
 
 
 
@@ -3258,7 +3258,7 @@ class TeamOrganizerApp(ctk.CTk):
 
         self.db_path = get_percorso_database()
 
-        self.conn = sqlite3.connect(self.db_path)
+        self.conn = sqlite3.connect(self.db_path, check_same_thread=False)
 
         self.cursor = self.conn.cursor()
 
